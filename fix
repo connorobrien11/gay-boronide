@@ -1,7 +1,9 @@
- local chest1 = {"Gold" or "Enchanted"}
- 
-                for i,v in pairs(game.Workspace:GetDescendants()) do
-                    if v:IsA("StringValue") and table.find(chest1, v.Value)  then
-                        game:GetService("TweenService"):Create(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(13.5, Enum.EasingStyle.Linear), {CFrame = v.Parent:GetModelCFrame()}):Play()
-                    end
-                end
+for i,v in pairs(game.Workspace:GetDescendants()) do
+     if v:IsA("StringValue") and v.Value == "Enchanted" then
+        game:GetService("TweenService"):Create(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(13.5, Enum.EasingStyle.Linear), {CFrame = v.Parent:GetModelCFrame()}):Play()
+     else
+        if v:IsA("StringValue") and v.Value == "Gold" then
+            game:GetService("TweenService"):Create(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(13.5, Enum.EasingStyle.Linear), {CFrame = v.Parent:GetModelCFrame()}):Play()
+        end
+    end
+end
